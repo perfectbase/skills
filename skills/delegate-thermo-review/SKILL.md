@@ -15,6 +15,7 @@ Use this skill to get an independent thermo-nuclear review with a short subagent
    - Do not expand resolved metadata into the subagent prompt.
 
 2. Spawn one subagent with the `thermo-nuclear-code-quality-review` skill attached as a skill input item.
+   - Start a fresh subagent with no inherited conversation history. Use `fork_turns: "none"` when supported.
    - Use the session skill entry when present; otherwise use `${CODEX_HOME:-$HOME/.codex}/skills/thermo-nuclear-code-quality-review/SKILL.md`.
    - Prompt with one sentence using the user's target phrase.
 
