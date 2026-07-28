@@ -46,7 +46,7 @@ Codex presentation and invocation settings live in `agents/openai.yaml`.
 Run the repository checks with:
 
 ```sh
-python3 scripts/check.py
+node scripts/check.mjs
 ```
 
 ## Credits and licensing
