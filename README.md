@@ -34,14 +34,14 @@ npx skills add perfectbase/skills --skill grill-me --global
 Or copy a skill manually into the skill directory used by your harness:
 
 ```sh
-cp -R skills/grill-me ~/.codex/skills/
+cp -R skills/grill-me ~/.agents/skills/
 ```
 
 Common destinations include:
 
-- Codex: `~/.codex/skills/`
+- Codex: `~/.agents/skills/`
 - Claude Code: `~/.claude/skills/`
-- Cursor: `~/.cursor/skills/`
+- Cursor: `~/.agents/skills/` or `~/.cursor/skills/`
 
 ## Compatibility
 
