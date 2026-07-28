@@ -3,9 +3,7 @@ name: publish-pr
 description: Publish local git changes to GitHub by confirming scope, choosing a typed branch name, staging only intended files, committing with a typed prefix, pushing, and opening a draft pull request with a typed title. Use when the user asks Codex to make, create, open, publish, or prepare a PR from the current checkout.
 ---
 
-> This file is based on OpenAI's `yeet` skill and has been modified for this
-> collection. See `README.md` and `LICENSE.upstream` for source and license
-> details.
+> This file is based on OpenAI's `yeet` skill and has been modified for this collection. See `README.md` and `LICENSE.upstream` for source and license details.
 
 # Publish PR
 

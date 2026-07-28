@@ -1,10 +1,8 @@
 # skills
 
-A personal collection of agent skills for Codex, Claude Code, Cursor, and other
-harnesses that support the [Agent Skills](https://agentskills.io/) format.
+A personal collection of agent skills for Codex, Claude Code, Cursor, and other harnesses that support the [Agent Skills](https://agentskills.io/) format.
 
-The collection is intentionally small and opinionated. Each skill can be
-installed independently.
+The collection is intentionally small and opinionated. Each skill can be installed independently.
 
 ## Skills
 
@@ -21,8 +19,7 @@ installed independently.
 
 ## Install
 
-Until this repository is published, copy an individual skill into the skill
-directory used by your harness:
+Until this repository is published, copy an individual skill into the skill directory used by your harness:
 
 ```sh
 cp -R skills/grill-me ~/.codex/skills/
@@ -34,14 +31,11 @@ Common destinations include:
 - Claude Code: `~/.claude/skills/`
 - Cursor: `~/.cursor/skills/`
 
-After publication, compatible Agent Skills installers can install skills
-directly from the GitHub repository.
+After publication, compatible Agent Skills installers can install skills directly from the GitHub repository.
 
 ## Compatibility
 
-Every directory is centered on a `SKILL.md`. A few skills retain
-harness-specific frontmatter where it controls invocation behavior. Optional
-Codex presentation and invocation settings live in `agents/openai.yaml`.
+Every directory is centered on a `SKILL.md`. A few skills retain harness-specific frontmatter where it controls invocation behavior. Optional Codex presentation and invocation settings live in `agents/openai.yaml`.
 
 Run the repository checks with:
 
@@ -51,9 +45,6 @@ node scripts/check.mjs
 
 ## Credits and licensing
 
-Several skills build on work by other creators. See [CREDITS.md](CREDITS.md)
-and the README inside each skill directory for direct source links.
+Several skills build on work by other creators. See [CREDITS.md](CREDITS.md) and the README inside each skill directory for direct source links.
 
-Original work in this repository is available under the [MIT License](LICENSE).
-Third-party material remains subject to the notices included beside the
-affected skills.
+Original work in this repository is available under the [MIT License](LICENSE). Third-party material remains subject to the notices included beside the affected skills.
