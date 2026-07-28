@@ -8,14 +8,14 @@ The collection is intentionally small and opinionated. Each skill can be install
 
 | Skill | What it does |
 | --- | --- |
-| [`batch-grill-me`](skills/batch-grill-me/) | Interviews across every currently answerable branch of a design tree, round by round. |
-| [`delegate-thermo-review`](skills/delegate-thermo-review/) | Delegates a strict maintainability review to a subagent and discusses its findings. |
-| [`grill-me`](skills/grill-me/) | Stress-tests a plan, decision, or idea one question at a time. |
-| [`html-plan`](skills/html-plan/) | Produces grounded, self-contained interactive HTML implementation plans. |
-| [`html-recap`](skills/html-recap/) | Turns completed work into a self-contained interactive HTML recap. |
-| [`publish-pr`](skills/publish-pr/) | Commits, pushes, and opens a typed draft pull request. |
-| [`thermo-nuclear-code-quality-review`](skills/thermo-nuclear-code-quality-review/) | Runs an exceptionally strict maintainability and code-structure review. |
-| [`writing-great-skills`](skills/writing-great-skills/) | Provides a vocabulary and principles for writing predictable agent skills. |
+| [`batch-grill-me`](skills/batch-grill-me/) | Interviews across every currently answerable branch of a design tree, round by round.<br><sub>Credit: [Matt Pocock](https://github.com/mattpocock)</sub> |
+| [`delegate-thermo-review`](skills/delegate-thermo-review/) | Delegates a strict maintainability review to a subagent and discusses its findings.<br><sub>Credit: [Cursor](https://github.com/cursor)</sub> |
+| [`grill-me`](skills/grill-me/) | Stress-tests a plan, decision, or idea one question at a time.<br><sub>Credit: [Matt Pocock](https://github.com/mattpocock)</sub> |
+| [`html-plan`](skills/html-plan/) | Produces grounded, self-contained interactive HTML implementation plans.<br><sub>Credit: [Builder.io](https://github.com/BuilderIO)</sub> |
+| [`html-recap`](skills/html-recap/) | Turns completed work into a self-contained interactive HTML recap.<br><sub>Credit: [Builder.io](https://github.com/BuilderIO)</sub> |
+| [`publish-pr`](skills/publish-pr/) | Commits, pushes, and opens a typed draft pull request.<br><sub>Credit: [OpenAI](https://github.com/openai)</sub> |
+| [`thermo-nuclear-code-quality-review`](skills/thermo-nuclear-code-quality-review/) | Runs an exceptionally strict maintainability and code-structure review.<br><sub>Credit: [Cursor](https://github.com/cursor)</sub> |
+| [`writing-great-skills`](skills/writing-great-skills/) | Provides a vocabulary and principles for writing predictable agent skills.<br><sub>Credit: [Matt Pocock](https://github.com/mattpocock)</sub> |
 
 ## Install
 
