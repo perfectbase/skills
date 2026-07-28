@@ -19,7 +19,19 @@ The collection is intentionally small and opinionated. Each skill can be install
 
 ## Install
 
-Until this repository is published, copy an individual skill into the skill directory used by your harness:
+Install interactively with the Agent Skills CLI:
+
+```sh
+npx skills add perfectbase/skills
+```
+
+Install one skill globally:
+
+```sh
+npx skills add perfectbase/skills --skill grill-me --global
+```
+
+Or copy a skill manually into the skill directory used by your harness:
 
 ```sh
 cp -R skills/grill-me ~/.codex/skills/
@@ -30,8 +42,6 @@ Common destinations include:
 - Codex: `~/.codex/skills/`
 - Claude Code: `~/.claude/skills/`
 - Cursor: `~/.cursor/skills/`
-
-After publication, compatible Agent Skills installers can install skills directly from the GitHub repository.
 
 ## Compatibility
 
