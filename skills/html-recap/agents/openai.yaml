@@ -1,0 +1,6 @@
+interface:
+  display_name: "HTML Recap"
+  short_description: "Review completed changes as interactive HTML"
+  default_prompt: "Use $html-recap to create a visual recap of the changes in this work unit."
+policy:
+  allow_implicit_invocation: false

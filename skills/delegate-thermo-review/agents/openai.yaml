@@ -1,0 +1,6 @@
+interface:
+  display_name: "Delegate Thermo Review"
+  short_description: "Subagent-powered strict code review"
+  default_prompt: "Use $delegate-thermo-review to review my local diff."
+policy:
+  allow_implicit_invocation: false

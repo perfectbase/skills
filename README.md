@@ -1,0 +1,59 @@
+# skills
+
+A personal collection of agent skills for Codex, Claude Code, Cursor, and other
+harnesses that support the [Agent Skills](https://agentskills.io/) format.
+
+The collection is intentionally small and opinionated. Each skill can be
+installed independently.
+
+## Skills
+
+| Skill | What it does |
+| --- | --- |
+| [`batch-grill-me`](skills/batch-grill-me/) | Interviews across every currently answerable branch of a design tree, round by round. |
+| [`delegate-thermo-review`](skills/delegate-thermo-review/) | Delegates a strict maintainability review to a subagent and discusses its findings. |
+| [`grill-me`](skills/grill-me/) | Stress-tests a plan, decision, or idea one question at a time. |
+| [`html-plan`](skills/html-plan/) | Produces grounded, self-contained interactive HTML implementation plans. |
+| [`html-recap`](skills/html-recap/) | Turns completed work into a self-contained interactive HTML recap. |
+| [`publish-pr`](skills/publish-pr/) | Commits, pushes, and opens a typed draft pull request. |
+| [`thermo-nuclear-code-quality-review`](skills/thermo-nuclear-code-quality-review/) | Runs an exceptionally strict maintainability and code-structure review. |
+| [`writing-great-skills`](skills/writing-great-skills/) | Provides a vocabulary and principles for writing predictable agent skills. |
+
+## Install
+
+Until this repository is published, copy an individual skill into the skill
+directory used by your harness:
+
+```sh
+cp -R skills/grill-me ~/.codex/skills/
+```
+
+Common destinations include:
+
+- Codex: `~/.codex/skills/`
+- Claude Code: `~/.claude/skills/`
+- Cursor: `~/.cursor/skills/`
+
+After publication, compatible Agent Skills installers can install skills
+directly from the GitHub repository.
+
+## Compatibility
+
+Every directory is centered on a `SKILL.md`. A few skills retain
+harness-specific frontmatter where it controls invocation behavior. Optional
+Codex presentation and invocation settings live in `agents/openai.yaml`.
+
+Run the repository checks with:
+
+```sh
+python3 scripts/check.py
+```
+
+## Credits and licensing
+
+Several skills build on work by other creators. See [CREDITS.md](CREDITS.md)
+and the README inside each skill directory for direct source links.
+
+Original work in this repository is available under the [MIT License](LICENSE).
+Third-party material remains subject to the notices included beside the
+affected skills.

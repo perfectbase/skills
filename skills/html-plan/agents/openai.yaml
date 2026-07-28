@@ -1,0 +1,6 @@
+interface:
+  display_name: "HTML Plan"
+  short_description: "Create grounded interactive plans as HTML"
+  default_prompt: "Use $html-plan to create a visual implementation plan for this change."
+policy:
+  allow_implicit_invocation: false

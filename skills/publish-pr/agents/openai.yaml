@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publish PR"
+  short_description: "Commit, push, and open typed pull requests"
+  default_prompt: "Use $publish-pr to publish the current changes as a draft pull request."
