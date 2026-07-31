@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slice Implement"
+  short_description: "Ship reviewable work as stacked PRs"
+  default_prompt: "Use $slice-implement to split this task into reviewable slices, implement them, and publish a green stacked PR series."
