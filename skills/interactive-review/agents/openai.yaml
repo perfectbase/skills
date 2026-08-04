@@ -1,0 +1,6 @@
+interface:
+  display_name: "Interactive Review"
+  short_description: "Review code changes section by section"
+  default_prompt: "Use $interactive-review to review the current changes with me one section at a time."
+policy:
+  allow_implicit_invocation: false
