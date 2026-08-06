@@ -1,6 +1,7 @@
 ---
 name: slice-implement
 description: Slice and implement a coding task as stacked pull requests. Use when the user wants an implementation divided into reviewable PRs or asks to build a stacked PR series.
+compatibility: Requires git, authenticated GitHub access, GitHub CLI, the gh-stack extension, and network access for publishing and monitoring pull requests.
 ---
 
 # Slice and implement
