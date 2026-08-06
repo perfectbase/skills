@@ -6,9 +6,34 @@ import { fileURLToPath } from "node:url";
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const skillsRoot = path.join(root, "skills");
+const pluginFile = path.join(root, "plugin.json");
 const linkPattern = /!?\[[^\]]*]\(([^)]+)\)/g;
 const namePattern = /^name:\s*['"]?([^'"\n]+)['"]?\s*$/m;
 const descriptionPattern = /^description:\s*['"]?(.+?)['"]?\s*$/m;
+const pluginSchema = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json";
+const pluginFields = new Set([
+  "$schema",
+  "name",
+  "version",
+  "description",
+  "author",
+  "homepage",
+  "repository",
+  "license",
+  "keywords",
+  "extensions",
+]);
+const pluginStringFields = [
+  "version",
+  "description",
+  "homepage",
+  "repository",
+  "license",
+];
+
+function isObject(value) {
+  return value !== null && typeof value === "object" && !Array.isArray(value);
+}
 
 function frontmatter(text, file) {
   if (!text.startsWith("---\n")) {
@@ -64,6 +89,66 @@ function walkMarkdown(directory) {
 
 const errors = [];
 const names = new Map();
+
+if (!fs.existsSync(pluginFile)) {
+  errors.push(`${pluginFile}: missing Agent Plugins manifest`);
+} else {
+  let plugin;
+  try {
+    plugin = JSON.parse(fs.readFileSync(pluginFile, "utf8"));
+  } catch (error) {
+    errors.push(`${pluginFile}: invalid JSON: ${error.message}`);
+  }
+
+  if (!isObject(plugin)) {
+    errors.push(`${pluginFile}: manifest must contain a JSON object`);
+  } else {
+    if (plugin.$schema !== pluginSchema) {
+      errors.push(`${pluginFile}: $schema must be ${JSON.stringify(pluginSchema)}`);
+    }
+    if (
+      typeof plugin.name !== "string" ||
+      !/^[a-z0-9](?:[a-z0-9.-]{0,62}[a-z0-9])?$/.test(plugin.name) ||
+      plugin.name.includes("--") ||
+      plugin.name.includes("..")
+    ) {
+      errors.push(`${pluginFile}: invalid Agent Plugins name`);
+    }
+    for (const field of Object.keys(plugin)) {
+      if (!pluginFields.has(field)) {
+        errors.push(`${pluginFile}: unknown top-level field ${JSON.stringify(field)}`);
+      }
+    }
+    for (const field of pluginStringFields) {
+      if (field in plugin && typeof plugin[field] !== "string") {
+        errors.push(`${pluginFile}: ${field} must be a string`);
+      }
+    }
+    if ("author" in plugin) {
+      if (!isObject(plugin.author)) {
+        errors.push(`${pluginFile}: author must be an object`);
+      } else {
+        for (const [field, value] of Object.entries(plugin.author)) {
+          if (!["name", "email", "url"].includes(field)) {
+            errors.push(`${pluginFile}: unknown author field ${JSON.stringify(field)}`);
+          } else if (typeof value !== "string") {
+            errors.push(`${pluginFile}: author.${field} must be a string`);
+          }
+        }
+      }
+    }
+    if (
+      "keywords" in plugin &&
+      (!Array.isArray(plugin.keywords) ||
+        plugin.keywords.some((keyword) => typeof keyword !== "string"))
+    ) {
+      errors.push(`${pluginFile}: keywords must be an array of strings`);
+    }
+    if ("extensions" in plugin && !isObject(plugin.extensions)) {
+      errors.push(`${pluginFile}: extensions must be an object`);
+    }
+  }
+}
 
 if (!fs.existsSync(skillsRoot)) {
   errors.push(`${skillsRoot}: missing skills directory`);
@@ -128,5 +213,7 @@ if (errors.length > 0) {
   }
   process.exitCode = 1;
 } else {
-  console.log(`Validated ${names.size} skills and all local Markdown links.`);
+  console.log(
+    `Validated the Agent Plugins manifest, ${names.size} skills, and all local Markdown links.`,
+  );
 }

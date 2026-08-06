@@ -1,6 +1,6 @@
 # skills
 
-A personal collection of agent skills for Codex, Claude Code, Cursor, and other harnesses that support the [Agent Skills](https://agentskills.io/) format.
+A personal collection of agent skills for Codex, Claude Code, Cursor, and other harnesses that support the [Agent Skills](https://agentskills.io/) format. The repository is also packaged as an [Agent Plugin](https://agent-plugins.org/) so compatible clients can discover the collection through the portable plugin standard.
 
 The collection is intentionally small and opinionated. Each skill can be installed independently.
 
@@ -47,7 +47,9 @@ Common destinations include:
 
 ## Compatibility
 
-Every directory is centered on a `SKILL.md`. A few skills retain harness-specific frontmatter where it controls invocation behavior. Optional Codex presentation and invocation settings live in `agents/openai.yaml`.
+The root [`plugin.json`](plugin.json) identifies this repository as an Agent Plugins 1.0 package. Compatible clients discover each immediate child of `skills/` as an independent skill.
+
+Every skill directory is centered on a `SKILL.md`. A few skills retain harness-specific frontmatter where it controls invocation behavior. Optional Codex presentation and invocation settings live in `agents/openai.yaml`.
 
 Run the repository checks with:
 

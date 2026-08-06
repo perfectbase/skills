@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "perfectbase.skills",
+  "version": "1.0.0",
+  "description": "An opinionated collection of portable Agent Skills for coding agents.",
+  "author": {
+    "name": "Ravi",
+    "url": "https://github.com/perfectbase"
+  },
+  "homepage": "https://github.com/perfectbase/skills",
+  "repository": "https://github.com/perfectbase/skills",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "developer-workflows",
+    "code-review"
+  ]
+}
