@@ -49,7 +49,7 @@ Common destinations include:
 
 The root [`plugin.json`](plugin.json) identifies this repository as an Agent Plugins 1.0 package. Compatible clients discover each immediate child of `skills/` as an independent skill.
 
-Every skill directory is centered on a `SKILL.md`. A few skills retain harness-specific frontmatter where it controls invocation behavior. Optional Codex presentation and invocation settings live in `agents/openai.yaml`.
+Every skill directory is centered on a portable `SKILL.md`. Optional Codex presentation and invocation settings live in `agents/openai.yaml` and are ignored by clients that do not use them.
 
 Run the repository checks with:
 
