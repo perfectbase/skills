@@ -21,7 +21,7 @@ For each section:
 
 Do not reflexively accept concerns. Reassess them using code evidence, expected likelihood and impact, and implementation cost.
 
-If the user wants findings tracked, maintain a Markdown file in `/tmp`. Add only findings the user accepts.
+If the user wants findings tracked, maintain a Markdown file in the temporary directory provided by the environment. If files are unavailable, keep the accepted findings in the conversation instead. Add only findings the user accepts.
 
 Keep the review read-only unless the user explicitly requests changes.
 
