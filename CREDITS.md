@@ -15,8 +15,7 @@ This collection includes skills copied from, based on, or designed to work with 
 
 ## Cursor
 
-- [`thermo-nuclear-code-quality-review`](skills/thermo-nuclear-code-quality-review/) was copied from [Cursor's thermo-nuclear-code-quality-review skill](https://github.com/cursor/plugins/tree/main/cursor-team-kit/skills/thermo-nuclear-code-quality-review).
-- [`delegate-thermo-review`](skills/delegate-thermo-review/) delegates to that Cursor skill.
+- [`delegate-thermo-review`](skills/delegate-thermo-review/) incorporates and delegates [Cursor's thermo-nuclear-code-quality-review skill](https://github.com/cursor/plugins/tree/main/cursor-team-kit/skills/thermo-nuclear-code-quality-review).
 
 ## OpenAI
 
