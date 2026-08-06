@@ -1,6 +1,7 @@
 ---
 name: html-recap
-description: Turn a completed work unit, PR, branch, commit, or git diff into a polished self-contained interactive HTML recap. Use when a user invokes /html-recap or asks for an HTML visual recap, change walkthrough, before/after review, architecture recap, UI change recap, or high-level review artifact for work that already exists.
+description: Turn a completed work unit, PR, branch, commit, or git diff into a polished self-contained interactive HTML recap. Use when a user invokes html-recap or asks for an HTML visual recap, change walkthrough, before/after review, architecture recap, UI change recap, or high-level review artifact for work that already exists.
+compatibility: Requires the ability to create a local HTML artifact. Browser or HTML rendering tools are recommended for complete visual validation.
 ---
 
 # HTML Recap
@@ -52,7 +53,7 @@ When updating an existing recap, retain the whole work unit and incorporate the 
 
 8. **Audit truth and security.** Reconcile every field, path, status, code line, state, and test claim against the selected comparison; scan copied content for secrets and sensitive data.
 
-9. **Validate the artifact.** Open or render it with available browser tooling. Check desktop and narrow widths, keyboard navigation, contrast, overflow, clipping, anchors, tabs, diff controls, diagrams, UI states, print output, and console errors. Fix every visible defect.
+9. **Validate the artifact.** When browser tooling is available, open or render the HTML and check desktop and narrow widths, keyboard navigation, contrast, overflow, clipping, anchors, tabs, diff controls, diagrams, UI states, print output, and console errors. Otherwise validate the document structure, local links, and scripts statically and disclose the visual-validation limitation. Fix every defect found.
 
 10. **Hand off.** Provide a clickable link to the HTML artifact and state the comparison it covers in one sentence. Mention any material inference, redaction, omitted generated content, or validation limitation.
 
