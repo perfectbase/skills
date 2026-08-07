@@ -4,8 +4,6 @@ description: Publish local git changes to GitHub by confirming scope, choosing a
 compatibility: Requires git, authenticated GitHub access, and either a GitHub integration or the GitHub CLI for pull-request creation.
 ---
 
-> This file is based on OpenAI's `yeet` skill and has been modified for this collection. See `README.md` and `LICENSE.upstream` for source and license details.
-
 # Publish PR
 
 ## Overview
