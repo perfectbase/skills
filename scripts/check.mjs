@@ -12,14 +12,6 @@ const namePattern = /^name:\s*['"]?([^'"\n]+)['"]?\s*$/m;
 const descriptionPattern = /^description:\s*['"]?(.+?)['"]?\s*$/m;
 const compatibilityPattern = /^compatibility:\s*['"]?(.+?)['"]?\s*$/m;
 const pluginSchema = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json";
-const skillFields = new Set([
-  "name",
-  "description",
-  "license",
-  "compatibility",
-  "metadata",
-  "allowed-tools",
-]);
 const pluginFields = new Set([
   "$schema",
   "name",
@@ -204,9 +196,6 @@ if (!fs.existsSync(skillsRoot)) {
         errors.push(`${skillFile}: duplicate frontmatter field ${JSON.stringify(field)}`);
       }
       fields.set(field, true);
-      if (!skillFields.has(field)) {
-        warnings.push(`${skillFile}: nonportable frontmatter field ${JSON.stringify(field)}`);
-      }
     }
 
     if (!name) {
