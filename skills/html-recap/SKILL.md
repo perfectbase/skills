@@ -1,6 +1,7 @@
 ---
 name: html-recap
 description: Turn a completed work unit, PR, branch, commit, or git diff into a polished self-contained interactive HTML recap. Use when a user invokes html-recap or asks for an HTML visual recap, change walkthrough, before/after review, architecture recap, UI change recap, or high-level review artifact for work that already exists.
+disable-model-invocation: true
 ---
 
 # HTML Recap
