@@ -1,9 +1,8 @@
 ---
 name: publish-pr
-description: Publish local git changes to GitHub by confirming scope, choosing a typed branch name, staging only intended files, committing with a typed prefix, pushing, and opening a draft pull request with a typed title. Use when the user asks Codex to make, create, open, publish, or prepare a PR from the current checkout.
+description: Publish local git changes to GitHub by confirming scope, choosing a typed branch name, staging only intended files, committing with a typed prefix, pushing, and opening a draft pull request with a typed title. Use when the user asks to make, create, open, publish, or prepare a PR from the current checkout.
+compatibility: Requires git, authenticated GitHub access, and either a GitHub integration or the GitHub CLI for pull-request creation.
 ---
-
-> This file is based on OpenAI's `yeet` skill and has been modified for this collection. See `README.md` and `LICENSE.upstream` for source and license details.
 
 # Publish PR
 
@@ -65,7 +64,7 @@ Prefer the narrowest honest type. If the repo has a stricter local convention, f
    Use the project’s existing scripts. If checks already ran after the final diff, reuse that result. If a check fails because dependencies or tools are missing, install what is needed only when appropriate for the repo and rerun once.
 
 7. Push.
-   Push with tracking: `git push -u origin $(git branch --show-current)`.
+   Resolve the current branch, then push it with tracking: `git push -u origin <branch>`.
 
 8. Open a draft PR by default.
    Prefer the GitHub app or connector for PR creation after pushing. Use `gh pr create` only as fallback. Use a typed title: `type: reviewer-facing summary`. Do not add `[codex]`. Do not mark ready for review unless the user explicitly asks.
