@@ -1,11 +1,12 @@
 ---
 name: html-plan
-description: Create or adapt implementation plans as polished, self-contained interactive HTML documents. Use when a user invokes /html-plan or asks for an HTML visual plan, reviewable implementation plan, architecture plan, UI plan, storyboard, wireframe plan, or clickable planning artifact before code changes.
+description: Create or adapt implementation plans as polished, self-contained interactive HTML documents. Use when a user invokes html-plan or asks for an HTML visual plan, reviewable implementation plan, architecture plan, UI plan, storyboard, wireframe plan, or clickable planning artifact before code changes.
+disable-model-invocation: true
 ---
 
 # HTML Plan
 
-Create the implementation plan Codex would normally write in chat as one standalone HTML document. Combine serious technical prose with the visual surfaces that materially improve review: diagrams, file maps, annotated code, tables, UI states, wireframes, lightweight prototypes, decisions, and open questions.
+Create the implementation plan normally written in chat as one standalone HTML document. Combine serious technical prose with the visual surfaces that materially improve review: diagrams, file maps, annotated code, tables, UI states, wireframes, lightweight prototypes, decisions, and open questions.
 
 The HTML document is the approval gate. Do not implement the planned source changes until the user approves the direction.
 
@@ -43,7 +44,7 @@ The HTML document is the approval gate. Do not implement the planned source chan
 
 6. **Audit decisions.** For each unresolved architecture, scope, UX, data, rollout, provider, or ownership choice, either commit to a recommendation with rationale or add one question at the bottom with a recommended default. Never ask the same question twice.
 
-7. **Validate the artifact.** Open or render the HTML with the available browser tooling. Check desktop and narrow widths, keyboard navigation, contrast, overflow, clipping, broken anchors, inactive-looking controls, diagrams, prototype transitions, and print output. Fix every visible defect. Completion criterion: the HTML opens without console errors and all intended controls and links work.
+7. **Validate the artifact.** When browser tooling is available, open or render the HTML and check desktop and narrow widths, keyboard navigation, contrast, overflow, clipping, broken anchors, inactive-looking controls, diagrams, prototype transitions, print output, and console errors. Otherwise validate the document structure, local links, and scripts statically and disclose the visual-validation limitation. Fix every defect found. Completion criterion: all intended controls and links pass the strongest validation available in the environment.
 
 8. **Hand off for approval.** Provide a clickable link to the HTML artifact, summarize the direction in one or two sentences, name the principal files/areas affected, and ask the user to review and approve before implementation.
 
