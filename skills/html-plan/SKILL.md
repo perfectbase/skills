@@ -1,7 +1,6 @@
 ---
 name: html-plan
 description: Create or adapt implementation plans as polished, self-contained interactive HTML documents. Use when a user invokes html-plan or asks for an HTML visual plan, reviewable implementation plan, architecture plan, UI plan, storyboard, wireframe plan, or clickable planning artifact before code changes.
-compatibility: Requires the ability to create a local HTML artifact. Browser or HTML rendering tools are recommended for complete visual validation.
 ---
 
 # HTML Plan
