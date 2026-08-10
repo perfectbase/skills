@@ -24,7 +24,7 @@ _Avoid_: ability, tool, capability
 
 ### User-Invoked
 
-A skill whose client configuration requires explicit user selection instead of automatic model selection. It still keeps the portable format's required **description**. Command syntax, context exposure, and whether another skill can reach it vary by client.
+A skill whose client configuration requires explicit user selection instead of automatic model selection. It still keeps the portable format's required **description**. Claude Code provides `disable-model-invocation: true` for this purpose; command syntax, context exposure, and support for this extension vary by client.
 
 _Avoid_: procedure, workflow, command
 

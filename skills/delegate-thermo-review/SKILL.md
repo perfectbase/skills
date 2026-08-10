@@ -1,6 +1,7 @@
 ---
 name: delegate-thermo-review
 description: Delegate a thermo-nuclear review to a subagent, then evaluate the findings without applying changes.
+disable-model-invocation: true
 ---
 
 # Delegate Thermo Review

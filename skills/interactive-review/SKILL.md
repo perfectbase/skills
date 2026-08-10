@@ -1,6 +1,7 @@
 ---
 name: interactive-review
 description: Conducts an interactive, code-first review of pull requests, branches, commits, or local changes. Use when the user wants changes organized and reviewed one section at a time in chat.
+disable-model-invocation: true
 ---
 
 # Interactive Review

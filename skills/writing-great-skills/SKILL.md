@@ -1,6 +1,7 @@
 ---
 name: writing-great-skills
 description: Reference for writing and editing skills well — the vocabulary and principles that make a skill predictable.
+disable-model-invocation: true
 ---
 
 A skill exists to wrangle determinism out of a stochastic system. **Predictability** — the agent taking the same _process_ every run, not producing the same output — is the root virtue; every lever below serves it.
@@ -12,7 +13,7 @@ A skill exists to wrangle determinism out of a stochastic system. **Predictabili
 Every portable skill keeps its required **description**. The client decides whether the model may select the skill automatically, whether the user can invoke it explicitly, and how descriptions are loaded into context.
 
 - A **model-invoked** skill is available for automatic selection. Write a model-facing description with specific trigger phrasing ("Use when the user wants…, mentions…").
-- A **user-invoked** skill requires explicit selection. Configure that policy through the client rather than adding nonstandard fields to portable frontmatter. Keep the required description concise and accurate.
+- A **user-invoked** skill requires explicit selection. Use client-supported invocation controls while keeping the required description concise and accurate. In Claude Code, `disable-model-invocation: true` prevents automatic model selection while preserving direct invocation; other clients may ignore this extension.
 
 When user-invoked skills multiply past what you can remember, a **router skill** can name them and explain when each is useful. Do not assume one skill can invoke another unless the client documents that capability.
 
