@@ -2,11 +2,12 @@
 name: delegate-thermo-review
 description: Delegate a thermo-nuclear review to a subagent, then evaluate the findings without applying changes.
 disable-model-invocation: true
+compatibility: Requires a client that can start a fresh subagent and provide a bundled reference file as context.
 ---
 
 # Delegate Thermo Review
 
-Use this skill to get an independent thermo-nuclear review with a short subagent prompt. The thermo skill carries the review rubric.
+Use this skill to get an independent thermo-nuclear review. The bundled [review rubric](references/review-rubric.md) carries the complete review criteria.
 
 ## Workflow
 
@@ -14,15 +15,14 @@ Use this skill to get an independent thermo-nuclear review with a short subagent
    - Keep only enough context to avoid ambiguity.
    - Do not expand resolved metadata into the subagent prompt.
 
-2. Spawn one subagent with the `thermo-nuclear-code-quality-review` skill attached as a skill input item.
+2. Read [references/review-rubric.md](references/review-rubric.md), then spawn one subagent with that rubric provided as context.
    - Start a fresh subagent with no inherited conversation history.
-   - Use the session skill entry when present; otherwise use `${CODEX_HOME:-$HOME/.codex}/skills/thermo-nuclear-code-quality-review/SKILL.md`.
    - Prompt with one sentence using the user's target phrase.
 
 Use this prompt shape:
 
 ```text
-Use the provided thermo-nuclear-code-quality-review skill to review <target>.
+Use the provided thermo-nuclear code-quality rubric to review <target>.
 ```
 
 3. Summarize all findings. Then work through them one at a time: explain each finding, ask any relevant questions, and suggest possible actions. Wait for my decision before moving to the next finding.
