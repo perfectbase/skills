@@ -10,6 +10,7 @@ const pluginFile = path.join(root, "plugin.json");
 const linkPattern = /!?\[[^\]]*]\(([^)]+)\)/g;
 const namePattern = /^name:\s*['"]?([^'"\n]+)['"]?\s*$/m;
 const descriptionPattern = /^description:\s*['"]?(.+?)['"]?\s*$/m;
+const compatibilityPattern = /^compatibility:\s*['"]?(.+?)['"]?\s*$/m;
 const pluginSchema = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json";
 const pluginFields = new Set([
   "$schema",
@@ -76,6 +77,9 @@ function walkMarkdown(directory) {
   const files = [];
 
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    if ([".git", "node_modules"].includes(entry.name)) {
+      continue;
+    }
     const entryPath = path.join(directory, entry.name);
     if (entry.isDirectory()) {
       files.push(...walkMarkdown(entryPath));
@@ -88,6 +92,7 @@ function walkMarkdown(directory) {
 }
 
 const errors = [];
+const warnings = [];
 const names = new Map();
 
 if (!fs.existsSync(pluginFile)) {
@@ -171,7 +176,7 @@ if (!fs.existsSync(skillsRoot)) {
       errors.push(`${directoryPath}: missing README.md`);
     }
 
-    const text = fs.readFileSync(skillFile, "utf8");
+    const text = fs.readFileSync(skillFile, "utf8").replaceAll("\r\n", "\n");
     let header;
     try {
       header = frontmatter(text, skillFile);
@@ -182,10 +187,27 @@ if (!fs.existsSync(skillsRoot)) {
 
     const name = header.match(namePattern)?.[1].trim();
     const description = header.match(descriptionPattern)?.[1].trim();
+    const compatibility = header.match(compatibilityPattern)?.[1].trim();
+    const fields = new Map();
+
+    for (const match of header.matchAll(/^([A-Za-z][A-Za-z0-9-]*):/gm)) {
+      const field = match[1];
+      if (fields.has(field)) {
+        errors.push(`${skillFile}: duplicate frontmatter field ${JSON.stringify(field)}`);
+      }
+      fields.set(field, true);
+    }
 
     if (!name) {
       errors.push(`${skillFile}: missing name`);
     } else {
+      if (
+        name.length > 64 ||
+        !/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(name) ||
+        name.includes("--")
+      ) {
+        errors.push(`${skillFile}: invalid Agent Skills name ${JSON.stringify(name)}`);
+      }
       if (name !== directory.name) {
         errors.push(
           `${skillFile}: name ${JSON.stringify(name)} does not match ${JSON.stringify(directory.name)}`,
@@ -199,12 +221,30 @@ if (!fs.existsSync(skillsRoot)) {
 
     if (!description) {
       errors.push(`${skillFile}: missing description`);
+    } else if (description.length > 1024) {
+      errors.push(`${skillFile}: description exceeds 1024 characters`);
+    }
+
+    if (fields.has("compatibility")) {
+      if (!compatibility) {
+        errors.push(`${skillFile}: compatibility must be a non-empty single-line string`);
+      } else if (compatibility.length > 500) {
+        errors.push(`${skillFile}: compatibility exceeds 500 characters`);
+      }
+    }
+
+    if (text.split("\n").length - 1 > 500) {
+      warnings.push(`${skillFile}: SKILL.md exceeds the recommended 500 lines`);
     }
   }
 }
 
 for (const markdown of walkMarkdown(root).sort()) {
   errors.push(...checkLocalLinks(markdown, fs.readFileSync(markdown, "utf8")));
+}
+
+for (const warning of warnings) {
+  console.warn(`warning: ${warning}`);
 }
 
 if (errors.length > 0) {
@@ -214,6 +254,6 @@ if (errors.length > 0) {
   process.exitCode = 1;
 } else {
   console.log(
-    `Validated the Agent Plugins manifest, ${names.size} skills, and all local Markdown links.`,
+    `Validated the Agent Plugins manifest, ${names.size} skills, and all local Markdown links with ${warnings.length} warning${warnings.length === 1 ? "" : "s"}.`,
   );
 }
