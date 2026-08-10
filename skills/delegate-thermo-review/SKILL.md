@@ -2,7 +2,6 @@
 name: delegate-thermo-review
 description: Delegate a thermo-nuclear review to a subagent, then evaluate the findings without applying changes.
 disable-model-invocation: true
-compatibility: Requires a client that can start a fresh subagent and provide a bundled reference file as context.
 ---
 
 # Delegate Thermo Review
