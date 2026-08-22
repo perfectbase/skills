@@ -4,8 +4,7 @@ This collection includes skills copied from, based on, or designed to work with 
 
 ## Matt Pocock
 
-- [`batch-grill-me`](skills/batch-grill-me/) was copied from [Matt Pocock's batch-grill-me skill](https://github.com/mattpocock/skills/blob/main/skills/in-progress/batch-grill-me/SKILL.md).
-- [`grill-me`](skills/grill-me/) was copied from and renamed from [Matt Pocock's grilling skill](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md).
+- [`grill-me`](skills/grill-me/) combines [Matt Pocock's grill-me entry point](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) with his current [grilling workflow](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md).
 - [`writing-great-skills`](skills/writing-great-skills/) was copied from [Matt Pocock's writing-great-skills skill](https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-great-skills).
 
 ## Builder.io
