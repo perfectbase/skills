@@ -1,7 +1,7 @@
-> This skill was originally created by [Matt Pocock](https://github.com/mattpocock) and copied from his [`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) skill under a shorter name.
+> This skill was originally created by [Matt Pocock](https://github.com/mattpocock) and combines his [`grill-me`](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) entry point with the current [`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) workflow.
 
 # Grill Me
 
-Stress-tests a plan, decision, or idea by walking its decision tree one question at a time.
+Stress-tests a plan or design by walking every currently answerable branch of its decision tree, round by round.
 
-Invoke it explicitly or ask the agent to grill your thinking.
+Invoke it explicitly when you want your thinking grilled.
