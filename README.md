@@ -14,7 +14,6 @@ The collection is intentionally small and opinionated. Each skill can be install
 | [`html-recap`](skills/html-recap/) | Turns completed work into a self-contained interactive HTML recap.<br><sub>Credit: [Builder.io](https://github.com/BuilderIO)</sub> |
 | [`interactive-review`](skills/interactive-review/) | Reviews code changes interactively, one architecture and data-flow section at a time. |
 | [`publish-pr`](skills/publish-pr/) | Commits, pushes, and opens a typed draft pull request.<br><sub>Credit: [OpenAI](https://github.com/openai)</sub> |
-| [`slice-implement`](skills/slice-implement/) | Implements reviewable work as prefixed stacked pull requests and babysits CI until green. |
 | [`writing-great-skills`](skills/writing-great-skills/) | Provides a vocabulary and principles for writing predictable agent skills.<br><sub>Credit: [Matt Pocock](https://github.com/mattpocock)</sub> |
 
 ## Install
